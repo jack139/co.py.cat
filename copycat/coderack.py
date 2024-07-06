@@ -369,7 +369,7 @@ class CodeRack:
             )
         if not callable(method):
             raise RuntimeError(f"Cannot call {method_name}()")
-        args, _varargs, _varkw, _defaults = inspect.getargspec(method)
+        args = inspect.signature(method).parameters
         try:
             if "codelet" in args:
                 method(codelet)
