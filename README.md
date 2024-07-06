@@ -19,7 +19,7 @@ There are no particular installation instructions, just clone and run, e.g.
 ```sh
 $ git clone https://github.com/jalanb/co.py.cat.git
 $ cd co.py.cat
-$ python3 -m copycat abc abd ijk
+$ python3 -m copycat abc abd pqr
 ```
 
 Running
@@ -28,16 +28,16 @@ Running
 The program takes two `arguments`
 
 - A pair of words with some change
-  - for example "ABC ABD".
+  - for example "abc abd".
 - A word to be changed
-  - for example "PQR"
+  - for example "pqr"
 
 And one `option`
 
 - How many solutions to evaluate
   - for example
     - `--solutions 10` means "try 10 solutions"
-    - if it's missing then the default is "try 1 solution"
+    - the default is "try 1 solution"
  
 
 So, to find a single x for the analogy `ABC:ABD::PQR:x`
@@ -47,7 +47,7 @@ $ python3 -m copycat ABC ABD PQR
 PQS: 1 (average time 0.3 seconds, average temperature 14.43)
 ```
 
-Evaluating more solutions can produce output like
+Evaluating more solutions can produce output
 
 ```sh
 $ python3 -m copycat ABC ABD PQQRRR --solutions 10
@@ -58,16 +58,17 @@ PQQSSS: 3 (average time 1.29 seconds, average temperature 24.83)
 
 In that run the program considered three solutions:
 
-- `PQQRRRR` 2 times
-- `PQQRRS` 5 times
-- `PQQSSS` 3 times 
+- `PQQRRRR` 2 times at 17˚ in 0.7 seconds
+- `PQQRRS` 5 times at 17˚ in 0.8 seconds
+- `PQQSSS` 3 times at 24˚ in 1.3 seconds
+
 
 From that one might say "copycat liked `PQQRRRR` best" because:
 
-1. The average temperature is lowest (looks like the "most obvious" solution)
-2. The average time is also lowest (looks like it did the least work)
+1. The average temperature is lowest (`17˚` looks like the "most obvious" solution)
+2. The average time is lowest (`0.7 seconds` looks like it did the least work)
 
-On the other hand `PQQRRS` might be considered best because it was the accepted solution most often.
+On the other hand `PQQRRS` might be considered "best" because it was the accepted solution most often: 5 times.
 
 For me: `PQQRRRR` is the "best" solution, because increasing the number of `Q`s from 3 to 4 is the "best" analogy to increasing the 3rd letter (`C`) to the 4th letter (`D`). However the other 2 answers also seem "quite good" because `PQQRRS` is the most direct (just increase the last letter), and `PQQSSS` is also fairly direct (increase letter in the last group).
 
@@ -121,10 +122,9 @@ You geeks make it all so worthwhile.
 Links
 =====
 
-Readers who got this far will definitely enjoy analogising this project with @[Alex-Linhares](https://github.com/Alex-Linhares)'s [collection of FARGonautica](https://github.com/Alex-Linhares/FARGonautica#projects-to-join-here-desiderata), a collection of computational architectures that have been developed frm
-Douglas Hofstadter's group's research in Fluid Concepts & Creative Analogies. 
+Readers who got this far will definitely enjoy analogising this project with @[Alex-Linhares](https://github.com/Alex-Linhares)'s [collection of FARGonautica](https://github.com/Alex-Linhares/FARGonautica#projects-to-join-here-desiderata), computational architectures that have been developed from Douglas Hofstadter's "FARGonautica" group's research in "[Fluid Concepts & Creative Analogies](https://archive.org/details/fluidconceptscre0000hofs_w7o9/page/n5/mode/2uphttps://archive.org/details/fluidconceptscre0000hofs_w7o9/page/n5/mode/2up". 
 
-They've got Lisp (lotsa (Lisp)), Python, C++, Java, even Perl. If you know one of those languages, then you too can be a FARGonaut. 
+They've got Lisp (lotsa (Lisp)), [Python](https://github.com/jalanb/co.py.cat), C++, Java, even Perl. If you know one of those languages, then you too can be a FARGonaut. 
 
 Send Coffee
 ===========
